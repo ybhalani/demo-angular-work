@@ -1,0 +1,35 @@
+<div id="gallery">
+	<div class="gallery-wrapper">
+		<img class="galleryimage image-animation"
+		     ng-if="galleryVm.isCurrentSlideIndex($index)"
+		     ng-repeat="image in galleryVm.images" ng-src="{{image.src}}">
+	</div>
+
+	<!-- WHY NOT MAKE THIS A DIRECTIVE!?!?! -->
+	<div class="container-fluid">
+		<back></back>
+	</div>
+
+	<billboard class="billboard" movie="galleryVm.movie"></billboard>
+
+	<div class="gallery">
+		<div class="slider-wrapper">
+			<ul class="slider">
+				<li class="slider-image" ng-repeat="thumb in galleryVm.images">
+					<img
+						ng-class="{'active':galleryVm.isCurrentSlideIndex($index)}"
+						ng-click="galleryVm.setCurrentSlideIndex($index)"
+						ng-src="{{thumb.src}}">
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<a href ng-click="galleryVm.prevSlide()" class="arrow-left">
+		<div class="arrow"></div>
+	</a>
+
+	<a href ng-click="galleryVm.nextSlide()" class="arrow-right">
+		<div class="arrow"></div>
+	</a>
+</div>

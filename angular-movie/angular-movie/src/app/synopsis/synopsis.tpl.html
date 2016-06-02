@@ -1,0 +1,16 @@
+<div id="synopsis">
+	<div class="synopsis-bg"></div>
+	<div class="container-fluid text-center">
+		<back></back>
+	</div>
+
+	<billboard class="billboard" movie="synopsisVm.movie"></billboard>
+
+	<div class="content">
+		<h3>ABOUT THE FILM</h3>
+
+		<div class="copy">
+			<p ng-bind-html="synopsisVm.renderHtml(synopsisVm.movie.synopsis)"></p>
+		</div>
+	</div>
+</div>

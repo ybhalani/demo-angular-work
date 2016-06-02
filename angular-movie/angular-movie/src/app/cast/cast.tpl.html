@@ -1,0 +1,26 @@
+<div id="cast">
+	<div class="cast-bg"></div>
+	<div class="container-fluid text-center">
+		<back></back>
+	</div>
+
+	<billboard class="billboard" movie="castVm.movie"></billboard>
+
+	<div class="content">
+		<ul>
+			<li ng-repeat="member in castVm.movie.cast">
+				<a href ng-class="{active: castVm.currentCast == $index}"
+				   ng-click="castVm.currentCast = $index">
+					{{member.name | uppercase}}
+				</a>
+			</li>
+		</ul>
+		<div class="cast-animate" ng-if="castVm.currentCast == $index"
+		     ng-repeat="member in castVm.movie.cast">
+			<h4>{{member.name | uppercase}}
+				<small>as {{member.character | uppercase}}</small>
+			</h4>
+			<div ng-bind-html="castVm.renderHtml(member.description)" class="copy"></div>
+		</div>
+	</div>
+</div>
